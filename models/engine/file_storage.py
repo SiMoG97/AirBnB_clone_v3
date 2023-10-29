@@ -91,12 +91,6 @@ class FileStorage:
         Returns:
             int : the number of objects
         """
-        if cls is None:
-            return len(self.__objects.values())
-
-        count = 0
-        for item in self.__objects:
-            if item.startswith(cls.__name__):
-                count += 1
-
-        return count
+        if cls:
+            return len(self.all(cls))
+        return len(self.all())

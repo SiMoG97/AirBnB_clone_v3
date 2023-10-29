@@ -98,9 +98,5 @@ class DBStorage:
             int : the number of objects
         """
         if cls:
-            return self.__session.query(cls).count()
-
-        count = 0
-        for clsName in classes:
-            count += self.__session.query(classes[clsName]).count()
-        return count
+            return len(self.all(cls))
+        return len(self.all())
