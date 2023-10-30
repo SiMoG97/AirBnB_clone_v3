@@ -5,10 +5,7 @@ from flask import Flask, Blueprint, jsonify
 from models import storage
 
 
-@app_views.route('/status', strict_slashes=False)
-def hbnbStatus():
+@app_views.route('/status', methods=["GET"], strict_slashes=False)
+def status():
     """hbnb Status"""
-    return jsonify({"status": "OK"})
-
-if __name__ == "__main__":
-    pass
+    return jsonify(status="OK")
